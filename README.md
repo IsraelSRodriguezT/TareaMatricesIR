@@ -1,6 +1,6 @@
 # Taller de Programación en C
 
-Este repositorio contiene la realizacionde de los ejercicios planteados en clases de programación, para C, asi relizando distintas ejercicios con matrices, además de implementar el uso del sizeoff.
+Este repositorio contiene la realizacion de de los ejercicios planteados en clases de programación, para C, llegando asi a relizar distintas ejercicios con matrices, además de implementar el uso del sizeoff.
 
 ## Estructura del Repositorio
 
