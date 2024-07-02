@@ -25,10 +25,10 @@ A continuación se incluye el acceso directo a la ubicación del archivo para ca
 9. **Suma de matrices**
    - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Suma.c
 10. **Resta de matrices**
-   - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Resta.c
+    - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Resta.c
 11. **Multiplicación de matrices**
-   - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Multiplicacion.c
+    - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Multiplicacion.c
 12. **División de matrices**
-   - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Division.c
+    - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Division.c
 13. **Potencia de matrices**
-   - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Potencia.c
+    - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Potencia.c
