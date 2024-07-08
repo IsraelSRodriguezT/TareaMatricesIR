@@ -6,7 +6,11 @@ void bucleOri(int filas, int columnas, int matriz[filas][columnas], int matriz2[
         for(int j=0;j<columnas;j++){ //Bucle for para indicarle a la matriz en que posicion de columna debe de estar
             printf(" %d |", matriz[i][j]); //Para imprimir cada valor en la posicion adecuada
         }
-        printf("  +  "); // Espacio entre las dos matrices
+        if(i==0){
+            printf("  +  "); // Espacio entre las dos matrices
+        } else{
+            printf("     ");
+        }
         printf("|"); //Para empezar a imprimir los (|)
         for(int j=0;j<columnas;j++){ //Bucle for para indicarle a la matriz2 en que posicion de columna debe de estar
             printf(" %d |", matriz2[i][j]); //Para imprimir cada valor en la posicion adecuada

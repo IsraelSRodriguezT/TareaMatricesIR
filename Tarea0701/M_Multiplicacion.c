@@ -1,15 +1,34 @@
 #include <stdio.h>
-void bucleOri(int filas, int columnas, int matriz1[filas][columnas], int matriz2[filas][columnas]){ //Procedimiento para imprimir las matrices ingresadas
+void bucleOri(int filas, int columnas, int matriz1[filas][columnas], int filas2 , int columnas2 ,int matriz2[filas][columnas]){ //Procedimiento para imprimir las matrices ingresadas
+    int maxFilas=filas>filas2?filas:filas2; //Para comprobar el tamaño adecuado de las dos matrices
     printf("Matrices Originales:\n");
-    for(int i=0;i<filas;i++){ //Bucle for para indicarle a la matriz en que posicion de fila debe de estar
-        printf("|"); //Para empezar a imprimir los (|)
-        for(int j=0;j<columnas;j++){ //Bucle for para indicarle a la matriz en que posicion de columna debe de estar
-            printf(" %d |", matriz1[i][j]); //Para imprimir cada valor en la posicion adecuada
+    for(int i=0;i<maxFilas;i++){ //Bucle for para indicarle a la matriz en que posicion de fila debe de estar
+        if(i<filas){
+            printf("|"); //Para empezar a imprimir los (|)
+            for(int j=0;j<columnas;j++){ //Bucle for para indicarle a la matriz en que posicion de columna debe de estar
+                printf(" %d |", matriz1[i][j]); //Para imprimir cada valor en la posicion adecuada
+            } 
+        } else{
+            printf(" "); //Para empezar a imprimir los (|)
+            for(int j=0;j<columnas;j++){ //Bucle for para indicarle a la matriz en que posicion de columna debe de estar
+                printf("    "); //Para imprimir espacios vacios
+            } 
         }
-        printf("  *  "); // Espacio entre las dos matrices
-        printf("|"); //Para empezar a imprimir los (|)
-        for(int j=0;j<columnas;j++){ //Bucle for para indicarle a la matriz2 en que posicion de columna debe de estar
-            printf(" %d |", matriz2[i][j]); //Para imprimir cada valor en la posicion adecuada
+        if(i==0){
+            printf("  *  "); // Espacio entre las dos matrices
+        } else{
+            printf("     ");
+        }
+        if(i<filas2){
+            printf("|"); //Para empezar a imprimir los (|)
+            for(int j=0;j<columnas2;j++){ //Bucle for para indicarle a la matriz2 en que posicion de columna debe de estar
+                printf(" %d |", matriz2[i][j]); //Para imprimir cada valor en la posicion adecuada
+            }
+        } else{
+            printf(" "); //Para empezar a imprimir los (|)
+            for(int j=0;j<columnas2;j++){ //Bucle for para indicarle a la matriz2 en que posicion de columna debe de estar
+                printf("   "); //Para imprimir espacios vacios
+            }
         }
         printf("\n"); //Para hacer un salto de linea al momento de cambiar de fila
     }
@@ -84,7 +103,7 @@ int main() {
             scanf("%d", &matriz2[i][j]);
         }
     }
-    bucleOri(nfilas1, ncolumnas1, matriz1, matriz2); //Para llamar al procedimiento que imprime las matrices originales
+    bucleOri(nfilas1, ncolumnas1, matriz1, nfilas2, ncolumnas2, matriz2); //Para llamar al procedimiento que imprime las matrices originales
     bucle(nfilas1, ncolumnas1, ncolumnas2, matriz1, matriz2); //Para llamar al procedimiento que imprime la matriz resultante
     return 0;
 }
