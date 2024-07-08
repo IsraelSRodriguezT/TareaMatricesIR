@@ -34,5 +34,5 @@ A continuación se incluye el acceso directo a la ubicación del archivo para ca
     - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Potencia.c
 14. **Suma de matrices hexadecimales**
     - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Suma_Hx.c
-15. **Suma de matrices hexadecimales**
+15. **Ordenar las cartas de una baraja**
     - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Cartas.c
