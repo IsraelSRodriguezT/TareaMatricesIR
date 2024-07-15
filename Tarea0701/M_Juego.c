@@ -19,8 +19,13 @@ void barajarandom(Jugador *jugador, int cartas[13], int *creditosmesa){
     int apuesta, aux; //Defino variables para el apartado de apuesta
     printf(" <-- Cuantos creditos quieres apostar?: ");
     do{ //Bucle para el valor de apuesta
-        scanf("%d", &apuesta); //Leo el valor que desea apostar el usuario
-        if(apuesta<=jugador->creditos&&apuesta<=*creditosmesa&&apuesta>=1){ //Para comprobar que el valor de apuesta sea correcta
+        int compr=scanf("%d", &apuesta); //Leo el valor que desea apostar el usuario
+        if(compr==0){
+            printf("Error: El valor ingresado no es un valor numerico. Ingresa nuevamente un valor: ");
+            int c; //Almacena temporalmente cada caracter leido
+            while ((c = getchar()) != '\n' && c != EOF); // Limpiar el buffer de entrada
+            aux=1;
+        } else if(apuesta<=jugador->creditos&&apuesta<=*creditosmesa&&apuesta>=1){ //Para comprobar que el valor de apuesta sea correcta
             aux=0;
         } else{
             aux=1;
