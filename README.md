@@ -36,3 +36,5 @@ A continuación se incluye el acceso directo a la ubicación del archivo para ca
     - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Suma_Hx.c
 15. **Ordenar las cartas de una baraja**
     - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Cartas.c
+16. **Crear un juego**
+    - https://github.com/IsraelSRodriguezT/TareaMatricesIR/blob/main/Tarea0701/M_Juego.c
