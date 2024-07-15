@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-void barajarandom(int jugador ,int cartas[13],int *creditos, int *creditosmesa){
+typedef struct {
+    int creditos;
+    int jugador;
+} Jugador;
+void barajarandom(Jugador *jugador, int cartas[13], int *creditosmesa){
     srand(time(NULL)); //Para generar numeros aleatorios
-    printf("Creditos J%d: %d       Creditos en mesa: %d\n", jugador, *creditos, *creditosmesa);
+    printf("Creditos J%d: %d       Creditos en mesa: %d\n", jugador->jugador, jugador->creditos, *creditosmesa);
     int carta1=rand()%13; //Para obtener una primera carta aleatoria entre el rango de valores
     int carta2=rand()%13; //Para obtener una segunda carta aleatoria entre el rango de valores
     if(cartas[carta1]>cartas[carta2]){ //Para ordenar las cartas en caso de que la primera carta sea de un valor mayor
@@ -17,7 +20,7 @@ void barajarandom(int jugador ,int cartas[13],int *creditos, int *creditosmesa){
     printf(" <-- Cuantos creditos quieres apostar?: ");
     do{ //Bucle para el valor de apuesta
         scanf("%d", &apuesta); //Leo el valor que desea apostar el usuario
-        if(apuesta<=*creditos&&apuesta<=*creditosmesa&&apuesta>=1){ //Para comprobar que el valor de apuesta sea correcta
+        if(apuesta<=jugador->creditos&&apuesta<=*creditosmesa&&apuesta>=1){ //Para comprobar que el valor de apuesta sea correcta
             aux=0;
         } else{
             aux=1;
@@ -27,16 +30,16 @@ void barajarandom(int jugador ,int cartas[13],int *creditos, int *creditosmesa){
     int cartaint=rand()%12; //Para obtener una tercera carta aleatoria entre el rango de valores
     printf("      |%d|     ", cartas[cartaint]); //Indico la tercera carta al usuario
     if(cartaint>carta1&&cartaint<carta2){ //Para comprobar los creditos a sumar o restar del usuario y a la mesa
-        *creditos+=apuesta;
+        jugador->creditos+=apuesta;
         *creditosmesa-=apuesta;
-    } else if((cartaint==carta1||cartaint==carta2)&&*creditos>=(apuesta*2)){
-        *creditos-=(apuesta*2);
+    } else if((cartaint==carta1||cartaint==carta2)&&jugador->creditos>=(apuesta*2)){
+        jugador->creditos-=(apuesta*2);
         *creditosmesa+=(apuesta*2);
     } else{
-        *creditos-=apuesta;
+        jugador->creditos-=apuesta;
         *creditosmesa+=apuesta;
     }
-    printf("      Creditos actuales: %d\n", *creditos); //Indico los creditos con los que se quedo el usuario
+    printf("      Creditos actuales: %d\n", jugador->creditos); //Indico los creditos con los que se quedo el usuario
     printf("-----------------------------------------------------------\n");
 }
 int main(){
@@ -54,31 +57,31 @@ int main(){
     printf("11 -> El juego acabara cuando uno de los jugadores se quede sin creditos.\n");
     printf("-----------------------------------------------------------\n");
     int cartas[13]={1,2,3,4,5,6,7,8,9,10,11,12,13}; //Defino array donde guarda todos los valores posibles de cartas.
-    int creditos1=9; //Defino los creditos para cada jugador
-    int creditos2=9;
+    Jugador jugador1={9,1}; //Defino los creditos para cada jugador
+    Jugador jugador2={9,2};
     int creditosmesa=2; //Defino los creditos en mesa
     do{ //Bucle para que se repita el juego hasta que alguien se quede sin creditos
-        if(creditos1!=0&&creditos2!=0){ //Para comprobar cuando algun jugador tenga 0 creditos
-            barajarandom(1,cartas,&creditos1,&creditosmesa); //Para llamar a la funcion
+        if(jugador1.creditos!=0&&jugador2.creditos!=0){ //Para comprobar cuando algun jugador tenga 0 creditos
+            barajarandom(&jugador1,cartas,&creditosmesa); //Para llamar a la funcion
             if(creditosmesa==0){ //Para cuando los creditos en mesa se queden en 0
                 creditosmesa=2;
-                creditos1-=1;
-                creditos2-=1;
+                jugador1.creditos-=1;
+                jugador2.creditos-=1;
             }
         }
-        if(creditos1!=0&&creditos2!=0){ //Para comprobar cuando algun jugador tenga 0 creditos
-            barajarandom(2,cartas,&creditos2,&creditosmesa); //Para llamar a la funcion
+        if(jugador1.creditos != 0 && jugador2.creditos != 0){ //Para comprobar cuando algun jugador tenga 0 creditos
+            barajarandom(&jugador2,cartas,&creditosmesa); //Para llamar a la funcion
             if(creditosmesa==0){ //Para cuando los creditos en mesa se queden en 0
                 creditosmesa=2;
-                creditos1-=1;
-                creditos2-=1;
+                jugador1.creditos-=1;
+                jugador2.creditos-=1;
             } 
         }
-    } while(creditos1!=0&&creditos2!=0); //Condicion para que se repitan mientras sean diferente de 0
-    if(creditos1==0){
+    } while(jugador1.creditos!=0&&jugador2.creditos!=0); //Condicion para que se repitan mientras sean diferente de 0
+    if(jugador1.creditos==0){
         printf("El Jugador 2 gano el juego");
-    } else if(creditos2==0){
-        printf("El jugador 1 gano el juego");
+    } else if(jugador2.creditos==0){
+        printf("El Jugador 1 gano el juego");
     }
-    return 1;
+    return 0;
 }
